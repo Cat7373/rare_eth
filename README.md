@@ -8,7 +8,7 @@
 
 ## 下载安装 
 
-首先从本项目的 [Releases](https://github.com/riba2534/rare_eth/releases) 中找到符合自己平台的二进制文件下载，下载完成后重命名为 `rare_eth` 📥，如果程序没有可执行权限请手动加一下:
+首先从本项目的 [Releases](https://github.com/cat7373/rare_eth/releases) 中找到符合自己平台的二进制文件下载，下载完成后重命名为 `rare_eth` 📥，如果程序没有可执行权限请手动加一下:
 
 ```bash
 chmod +x rare_eth
@@ -19,32 +19,35 @@ chmod +x rare_eth
 使用命令行运行可执行文件，可指定钱包地址的前缀、后缀和线程数量：
 
 ```bash
-./rare_eth -p <prefix> -s <suffix> -n <numGoroutines>
+./rare_eth -p <prefix> -s <suffix> -t <threads> -l <logInterval>
 ```
 
 参数说明：
 
 - `-p` 或 `--prefix`：需要的钱包地址的前缀，不指定则为不限制。注意字母必须为 A-F 之间的字母，数字无要求 🆔。
 - `-s` 或 `--suffix`：需要的钱包地址的后缀，不指定则为不限制。注意字母必须为 A-F 之间的字母，数字无要求 🆔。
-- `-n` 或 `--numGoroutines`：线程数量，默认为 100 ⚙️。
+- `-t` 或 `--threads`：线程数量，默认为 CPU 核心数⚙️。
+- `-l` 或 `--logInterval`：日志输出间隔，默认为 60 秒。
 
-找到满足条件的钱包地址后，程序会输出对应的钱包地址和私钥，以及私钥的二维码 🎉。
+找到满足条件的钱包地址后，程序会输出对应的钱包地址和私钥 🎉。
 
 ## 示例
 
 生成一个以 `888` 为前缀，以 `888` 为后缀的 ETH 钱包靓号：
 
 ```bash
-./rare_eth -p 888 -s 888 -n 500
+./rare_eth -p 888 -s 888 -l 10
 ```
 
 👇 下图为程序运行后输出的结果：
 
-![1683563988360.png](https://image-1252109614.cos.ap-beijing.myqcloud.com/2023/05/09/645925d4ed800.png)
+![](https://github.com/user-attachments/assets/11f1fff0-5a26-45dc-9338-01dc333ac1a9)
 
 我们得到了一个 888 开头 888 结尾的靓号 💯
 
-> 你的前后缀要求越高，程序计算越慢，如果你想要 8个8 这种靓号，推荐 s使用 tmux 或者  screen  这种工具在服务器后台慢慢跑，直到跑出你想要的结果
+> 你要求的前后缀越长，程序计算需要的时间就越长，如果你想要 8 个 8 这种靓号，推荐使用 tmux 或 screen 这种工具在服务器后台慢慢跑。
+>
+> 当然，就像上图一样，你运气好的话，可能很快就能生成到一个地址，运气不好的话，可能要多等一会。
 
 ## 兼容性
 
